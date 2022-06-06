@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'passenger_cars/css/main.css' %}">
+</head>
+<body>
+	<header>
+        <h1 class="logo">Добро пожаловать на сайт Автомобилиста {{ user.username }}</h1>
+    </header>
+    <aside>
+        <div>
+            <h2>Навигация по сайту</h2>
+            <h3><a href="{% url 'home' %}">На главную</a></h3>
+            {% if request.user.is_authenticated %}
+                <h3>{{ user.username }}<a href="{% url 'logout' %}">Выйти</a> </h3>
+                <h3><a href="{% url 'create' %}">Добавить статью</a></h3>
+            {% else %}
+                <h3><a href="{% url 'login' %}">Войти</a><a href="{% url 'register' %}">Регистрация</a></h3>
+            {% endif %}
+        </div>
+    </aside>
+    <main>
+        {% block content %}{% endblock %}
+        {% block pagination %}
+                    {% if is_paginated %}
+                        <div class="pagination">
+                            <span class="page-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                                {% endif %}
+                                <span class="page-current">
+                                    Страница {{ page_obj.number }} из
+                                        {{ page_obj.paginator.num_pages }}
+                                </span>
+                                {% if page_obj.has_next %}
+                                    <a href="{{request.path}}?page={{ page_obj.next_page_number }}
+                                            ">Следующая</a>
+                                {% endif %}
+                            </span>
+                        </div>
+                    {% endif %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div id="footer">
+		    <p>&copy; 2021 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</p>
+	    </div>
+    </footer>
+</body>
+</html>

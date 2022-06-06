@@ -1,0 +1,10 @@
+{% extends 'passenger_cars/base.html' %}
+{% block title %}Страница об автомобилях{% endblock %}
+{% block content %}
+    <div class="main-text">
+        <h2 style="color:#000302">{{ data.title }}</h2>
+        <p><img src="{{ data.photo.url }}" class="images"></p>
+        <p>{{ data.content|linebreaks }}</p>
+        <p style="color: blue">Дата публикации: {{ data.time_create }}</p>
+    </div>
+{% endblock %}

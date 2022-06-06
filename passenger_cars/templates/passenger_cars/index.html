@@ -1,0 +1,15 @@
+{% extends 'passenger_cars/base.html' %}
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+{% for d in page_obj %}
+    <div class="main-text">
+        <h2 style="color:#000302">{{ d.title }}</h2>
+        <p><img src="{{ d.photo.url }}" class="images"></p>
+        <p>{{ d.content|linebreaks|truncatewords:50 }}</p>
+        <p>Дата публикации: {{ d.time_create }}</p>
+        <div class="clear"></div>
+			<p class="link-read-post"><a href="{{ d.get_absolute_url }}">Читать пост</a></p>
+    </div>
+
+{% endfor %}
+{% endblock %}

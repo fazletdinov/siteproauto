@@ -1,0 +1,80 @@
+html, body {
+	font-family: 'Arial';
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #585c59;
+}
+header {
+    height: 80px; /* Высота слоя */
+    background: #28332f; border-bottom: 5px solid #7B5427; color:#e6edea;
+}
+header h1 {
+    padding: 20px; margin: 0;
+}
+
+aside div {
+  position: sticky;
+  top: 5em;
+}
+aside {
+    float: left;
+    background: #181818;
+    width:20%;
+    padding:2.5%;
+    height: 250%;
+    color:#fff;
+    border-right: 10px solid #4d4d4d;
+}
+
+aside h3 a {
+    color: #fff;
+    display: block;
+    margin-top: 15px;
+    transition: transform .5s ease;
+    text-decoration: none
+}
+
+aside h3 a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main h2, p {
+    color: #e8edeb;
+    font-size: 20px;
+}
+
+.main-text h2{
+   text-align: center;
+}
+
+footer p {
+    color: #000302;
+    text-decoration: underline;
+}
+
+div p img {max-width: 600px; height: 500;}
+
+div p img.images {
+	max-width: 300px;
+	height: 400;
+	float: left;
+	padding: 0 10px 10px 0;
+}
+
+div p img.images {
+	max-width: 150px;
+	height: auto;
+}
+
+aside div ul li a {
+    text-decoration: none;
+}
+
+aside div ul li a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);}
